@@ -1,0 +1,332 @@
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      /* Your background color setup */
+      background-color: #fbf6f0; 
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* 1. TRANSPARENT NAVBAR LOGIC */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 25px;
+      background-color: transparent; /* Makes the bar completely transparent */
+      position: absolute; /* Lets it sit gracefully over your background image */
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #2D4236; /* Using your Sage Green for the desktop logo text */
+      text-align: center;
+    }
+
+    /* Container for menu buttons to manage layouts across viewports */
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* ==========================================
+       GLOBE LANGUAGE SELECTOR LOGIC (PURE CSS)
+       ========================================== */
+    .lang-selector {
+      position: relative;
+      display: inline-block;
+      z-index: 110; /* Sits higher than navigation slide layout */
+    }
+
+    .globe-btn {
+      display: block;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      color: #2D4236; /* Desktop Sage Green color matching logo */
+      transition: opacity 0.2s ease, color 0.3s ease;
+    }
+
+    .globe-btn:hover {
+      opacity: 0.7;
+    }
+
+    .globe-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+      background-image: url('/shared/globe.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    /* Hide structural checkboxes completely */
+    .menu-toggle, .lang-checkbox {
+      display: none !important;
+    }
+
+    /* Styled Dropdown Box Options */
+    .lang-dropdown {
+      position: absolute;
+      top: 100%;
+  
+      /* CHANGE THIS: Floats menu leftwards instead of rightwards */
+      right: auto;
+      left: -20px; /* Pulls it safely away from the viewport edge */
+  
+      margin-top: 10px;
+      background-color: #ffffff;
+      border: 1px solid #e2ddd7;
+      border-radius: 6px;
+      list-style: none;
+      padding: 6px 0;
+      min-width: 110px;
+      box-shadow: 0 4px 12px rgba(45, 66, 54, 0.1);
+      display: none; /* Hide default state */
+    }
+
+    .lang-dropdown_bug{
+      position: absolute;
+      top: 100%;
+      right: 0; /* Align right border perfectly with globe icon */
+      margin-top: 10px;
+      background-color: #ffffff;
+      border: 1px solid #e2ddd7;
+      border-radius: 6px;
+      list-style: none;
+      padding: 6px 0;
+      min-width: 110px;
+      box-shadow: 0 4px 12px rgba(45, 66, 54, 0.1);
+      display: none; /* Hide default state */
+    }
+
+    .lang-dropdown a {
+      display: block;
+      padding: 8px 16px;
+      text-decoration: none;
+      color: #2D4236;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+    }
+
+    .lang-dropdown a:hover {
+      background-color: #f5efe6;
+    }
+
+    /* THE MAGIC: Toggle dropdown visible when icon checkbox registers active state */
+    .lang-checkbox:checked ~ .lang-dropdown {
+      display: block;
+    }
+
+    /* Desktop Menu Links */
+    .menu {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .menu a {
+      color: #2D4236; /* Dark Sage for visibility on light pink desktop background */
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: opacity 0.2s ease;
+    }
+
+    .menu a:hover {
+      opacity: 0.7;
+    }
+
+    /* Hide Toggle Controls on Desktop */
+    .hamburger {
+      display: none;
+    }
+
+    /* Page Content Padding to offset absolute navbar */
+    .content {
+      flex: 1;
+     /*  padding: 100px 25px 40px; */
+      padding: 115px 60px 0px 60px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .underline {
+        padding: 20px;
+        width: 249px;
+        transform: translateX(8px);
+    }
+
+    .block-icon {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: auto;
+     }
+
+     .icon-logo {
+         max-width: 249px;
+         margin-bottom: 15px;
+      }
+      
+      .icon-underline {
+          max-width: 426px;
+      }
+
+      .scroll-block {
+          display: block;  
+          text-align: center;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          width: 100%;
+      }
+      
+    .text-block {
+        margin-left: -60px;
+        margin-right: -60px;
+        padding: 30px 30px;;
+        text-align: left;
+        font-size: 20px;
+    }
+
+    .shrink-logo {
+        height: 130px;
+        width: auto; /* scales width to ~117px */
+        object-fit: contain;  /* prevent accidental stretching or squishing */
+    }
+
+    footer {
+      width: 100%;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .fluid-bg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ==========================================
+       MOBILE RESPONSIVE STYLES (Under 768px width)
+       ========================================== */
+    @media (max-width: 768px) {
+      
+      /* Rearrange navbar to balance layout spacing edges */
+      .navbar {
+        flex-direction: row-reverse; /* Flips entire row flow sequence */
+        justify-content: space-between;
+      }
+
+      /* Adjust control wrappers to hold proper spacing sizes */
+      .nav-controls {
+        flex-direction: row-reverse; /* Switches hamburger icon positioning safely */
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      /* Display the Hamburger Icon button on the Left */
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 18px;
+        cursor: pointer;
+        z-index: 100; /* Keeps icon layered above the sliding menu */
+      }
+
+      /* Shape the 3 bars inside hamburger (Using Sage Green for contrast on Pink) */
+      .hamburger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #2D4236; 
+        border-radius: 2px;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                    background-color 0.3s ease; /* Smoothly changes color when active */
+      }
+
+      /* Shift globe icons to white colors when background mobile menus slide open */
+      .menu-toggle:checked ~ .nav-controls .globe-btn {
+        color: #ffffff;
+      }
+
+      /* Position Navigation Menu Panel off-screen to the LEFT */
+      .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        /* width: 280px; */
+        width: 100%;
+        height: 100vh;
+        
+        /* Your Deep Sage Green background */
+        background-color: #2D4236; 
+        
+        flex-direction: column;
+        padding: 100px 40px 40px; /* Extra top padding so links sit below the X icon */
+        gap: 30px;
+        box-shadow: 4px 0 15px rgba(0,0,0,0.15);
+        
+        /* THE SLIDE MECHANISM */
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 90;
+      }
+
+      /* Mobile Links (White text to stand out against Sage Green) */
+      .menu a {
+        color: #ffffff;
+        font-size: 1.25rem;
+        display: block;
+        width: 100%;
+      }
+
+      /* ==========================================
+         THE MAGIC MECHANICS (CSS Checkbox Hack)
+         ========================================== */
+
+      /* 1. When checkbox is hit, slide menu Left-to-Right into view */
+      .menu-toggle:checked ~ .menu {
+        transform: translateX(0);
+      }
+
+      /* 2. Turn Hamburger bars into White so they remain visible on the dark Sage Menu */
+      .menu-toggle:checked ~ .nav-controls .hamburger span {
+        background-color: #ffffff;
+      }
+
+      /* 3. Rotate top hamburger bar down into X stroke */
+      .menu-toggle:checked ~ .nav-controls .hamburger span:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+      }
+
+      /* 4. Fade out the middle hamburger bar */
+      .menu-toggle:checked ~ .nav-controls .hamburger span:nth-child(2) {
+        opacity: 0;
+      }
+
+      /* 5. Rotate bottom hamburger bar up into X stroke */
+      .menu-toggle:checked ~ .nav-controls .hamburger span:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+      }
+    }

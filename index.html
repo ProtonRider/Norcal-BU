@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Language / 選擇語言 / Chọn ngôn ngữ</title>
+    
+    <!-- Link to your shared styles -->
+    <link rel="stylesheet" href="/shared/styles.css">
+    
+    <style>
+        /* Specific styles for the landing page layout */
+        body.landing-page {
+            background-color: #fbf6f0; /* Your standard beige background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .gateway-card {
+            background-color: #ffffff; /* White block structure */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-sizing: border-box;
+        }
+
+        .globe-main {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            /* background-image: url('/shared/globe.svg'); */
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .gateway-card h1 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 60px;
+        }
+
+        .svg-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .svg-wrapper svg {
+            height: 48px;
+            width: 48px; 
+            margin-bottom: 20px;
+        }
+
+        /* Language Choice Menu Grid */
+        .lang-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .lang-btn {
+            display: block;
+            padding: 14px 20px;
+            color: #333;
+            background-color: #fdfdfd;
+            border: 2px solid #e6e6d8;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        /* Hover states for desktop, active states for touch/mobile devices */
+        .lang-btn:hover, .lang-btn:active {
+            background-color: #fbf6f0; /* Highlights with beige color */
+            border-color: #d1d1bc;
+        }
+    </style>
+</head>
+<body class="landing-page">
+
+    <main class="gateway-card">
+        <p><img src="/shared/logo.png" class="block-icon icon-logo"/></p>
+        <!-- Reusing your shared globe icon asset -->
+        <div class="svg-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/>
+  <line x1="2" y1="12" x2="22" y2="12"/>
+  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h1>Choose your language</h1>
+        
+        <nav class="lang-grid">
+            <a href="/en/" class="lang-btn" hreflang="en">English</a>
+            <a href="/zh-HK/" class="lang-btn" hreflang="zh-HK">繁體中文</a>
+            <a href="/vi/" class="lang-btn" hreflang="vi">Tiếng Việt</a>
+        </nav>
+    </main>
+
+</body>
+</html>
+
